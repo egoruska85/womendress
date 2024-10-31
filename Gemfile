@@ -76,3 +76,7 @@ gem "bootstrap"
 
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'rails_admin', '3.0'
+gem 'devise-i18n'
+gem 'rails-i18n'
+gem 'rails_admin-i18n'
