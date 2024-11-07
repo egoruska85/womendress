@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col-xs-12 col-lg-4">
+        <center>
+          <%= link_to product_path(product) do %>
+            <div class="card" style="width: 18rem;">
+              <%= image_tag(product.images.first, class:"card-img-top", alt:"...") %>
+
+              <div class="card-body">
+                <h4><%= product.name_rus %></h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+          <% end %>
+        </center>
+      </div>
+    <% end %>
+  </div>
+</div>
