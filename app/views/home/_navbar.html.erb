@@ -1,22 +1,22 @@
 
-<div style="background-image: url(istockphoto-859675534-612x612.jpg)">
+<div style="background-color: black;">
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-1 col-xs-12">
-        <center><%= image_tag(@logo)%></center>
+        <center><%= image_tag(@logo, style:"width: 10rem;")%></center>
       </div>
       <div class="col-lg-3 col-xs-12">
-        <center><b style="font-family: bankgothic; font-weight: 900; font-size: 35px; width: 300px;">Creation by Bachani</b></center>
+
       </div>
       <div class="col-lg-8 col-xs-12">
         <nav class="navbar navbar-expand-lg">
 
           <div class="container-fluid">
 
-              <a class="btn btn btn-secondary" aria-current="page" href="#">Home</a>
-              <a class="btn btn btn-secondary" href="#">Features</a>
-              <a class="btn btn btn-secondary href="#">Pricing</a>
-              <a class="btn btn btn-secondary href="#""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
+              <a class="btn" aria-current="page" href="#">Home</a>
+              <a class="btn" href="#">Features</a>
+              <a class="btn" href="#">Pricing</a>
+              <a class="btn" href="#""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe-americas" viewBox="0 0 16 16">
     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
   </svg><%= locale.upcase %></a>
 
@@ -30,12 +30,26 @@
 
 
 
-<nav class="navbar navbar-expand-lg sticky-top" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg sticky-top" style="background-image: linear-gradient(
+    45deg,
+    hsl(0deg 100% 20%) 0%,
+    hsl(9deg 93% 24%) 8%,
+    hsl(16deg 92% 28%) 17%,
+    hsl(22deg 95% 31%) 25%,
+    hsl(27deg 100% 33%) 33%,
+    hsl(30deg 100% 36%) 42%,
+    hsl(34deg 100% 39%) 50%,
+    hsl(37deg 100% 41%) 58%,
+    hsl(40deg 100% 44%) 67%,
+    hsl(44deg 100% 46%) 75%,
+    hsl(47deg 100% 47%) 83%,
+    hsl(51deg 100% 49%) 92%,
+    hsl(55deg 100% 50%) 100%">
   <div class="container-fluid">
 
     <%= link_to root_path, class:'navbar-brand' do %>
-      <%= image_tag(@logo, alt:"Bootstrap", width:"50", height:"40")%>
-      <b style="font-family: bankgothic; font-weight: 900; font-size: 35px; width: 300px;">MB</b>
+      <%= image_tag(@logo, alt:"Bootstrap", width: '90rem;')%>
+      <!--<b style="font-family: bankgothic; font-weight: 900; font-size: 35px; width: 300px;">MB</b>-->
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
