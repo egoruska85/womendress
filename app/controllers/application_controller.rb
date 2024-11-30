@@ -1,8 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
+  before_action :set_locale, :set_variable
 
   private
+
+  def set_variable
+    @logo = Sitedetail.first.logo
+    @products = Product.all
+    @top_categories = Category.where(top: true)
+    @other_categories =Category.where(top: false)
+  end
 
   def set_locale
     I18n.locale = extract_locale || I18n.default_locale

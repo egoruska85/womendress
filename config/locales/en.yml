@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  navbar:
+    other: "Other"
+    categories: "All categories"

@@ -40,3 +40,16 @@
 .btn:hover:before {
   left: 100%;
 }
+
+@import url(https://fonts.googleapis.com/css?family=Rubik+One&subset=latin,cyrillic);
+.gradient-text {
+  font-family: 'Rubik One', sans-serif;
+  font-size: 50px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #B8860B 33%, yellow 66%, #CD853F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #CD853F;
+  display: table;
+  margin: 20px auto;
+};
