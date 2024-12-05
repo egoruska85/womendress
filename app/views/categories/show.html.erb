@@ -8,7 +8,13 @@
     <%= render 'layouts/navbar' %>
     <div>
       <br>
-      <center><p class="gradient-text"><%= @category.name_rus %></p></center>
+      <center>
+        <p class="gradient-text">
+          <%= @category.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+          <%= @category.name_eng if params[:locale] == 'en' %>
+          <%= @category.name_rus if params[:locale] == 'ru' %>
+        </p>
+      </center>
       <br>
       <div class="container">
         <div class="row">
