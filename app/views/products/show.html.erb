@@ -3,8 +3,73 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
+
+
+
   </head>
   <body style="background: #121212;">
     <%= render 'layouts/navbar' %>
+    <br>
+    <center>
+      <p class="gradient-text">
+        <%= @product.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+        <%= @product.name_eng if params[:locale] == 'en' %>
+        <%= @product.name_rus if params[:locale] == 'ru' %>
+      </p>
+    </center>
+
+
+
+<div class="row">
+
+</div>
+
+
+
+
+	<div class="flex" data-gallary>
+    <div class="container">
+      <div class="row">
+        <div class="col-1">
+            <div class="container" style="height:533px;width:120px;overflow-y:scroll;">
+              <div class="viewport">
+                <div class="thumbs content-box">
+                  <% @product.images.each do |image| %>
+                  <%= image_tag(image, style:"width: 5rem;") %>
+
+                  <br><br>
+                  <% end %>
+                </div>
+              </div>
+           </div>
+          <div class="col-4">
+
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="photo-box">
+            <%= image_tag(@main_photo, style:"width: 25rem;") %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+		<div>
+
+			<div class="flex control-row">
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+    <script src="/js/goodsgallery.function.js"></script>
+    <script src="/js/scrollbox.function.js"></script>
   </body>
 </html>
