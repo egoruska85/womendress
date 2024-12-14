@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     root "home#index"
     resources :products
     resources :categories
+    resources :backends
     # Defines the root path route ("/")
     # root "articles#index"
   end
