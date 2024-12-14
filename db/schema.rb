@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_05_101836) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_14_140514) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,35 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_05_101836) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "backends", force: :cascade do |t|
+    t.string "phone1"
+    t.string "phone2"
+    t.string "phone3"
+    t.text "address"
+    t.string "email"
+    t.text "about_rus"
+    t.text "about_eng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carousels", force: :cascade do |t|
+    t.string "category_rus"
+    t.string "category_eng"
+    t.string "title_rus"
+    t.string "title_eng"
+    t.text "body_rus"
+    t.text "body_eng"
+    t.boolean "details"
+    t.string "details_sizes"
+    t.text "details_colors"
+    t.text "details_more"
+    t.string "details_buy_ozon"
+    t.string "details_buy_wb"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
