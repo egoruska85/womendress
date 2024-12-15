@@ -37,3 +37,10 @@ en:
     products: "All products"
     main: "Main"
     about: "About us"
+  carousel:
+    details: "Details"
+    sizes: "Sizes"
+    colors: "Colors"
+    buy: "Buy"
+  home:
+    top: "Hot offers"

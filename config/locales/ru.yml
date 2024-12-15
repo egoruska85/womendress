@@ -5,3 +5,10 @@ ru:
     products: "Вся продукция"
     main: "Главная"
     about: "О нас"
+  carousel:
+    details: "Подробнее"
+    sizes: "Размеры"
+    colors: "Цвета"
+    buy: "Купить"
+  home:
+    top: "Горячие предложения"
