@@ -22,17 +22,13 @@
 
 
 
-<div class="row">
-
-</div>
-
 
 
 
 	<div class="flex" data-gallary>
     <div class="container">
       <div class="row">
-        <div class="col-1">
+        <div class="col-2 col-lg-1 col-md-2">
             <div class="container" style="height:533px;width:120px;overflow-y:scroll;">
               <div class="viewport">
                 <div class="thumbs content-box">
@@ -44,16 +40,85 @@
                 </div>
               </div>
            </div>
-          <div class="col-4">
 
-          </div>
         </div>
-        <div class="col-4">
+        <div class="col-10 col-lg-4 col-md-4">
           <div class="photo-box">
             <%= image_tag(@main_photo, style:"width: 35.7rem;") %>
           </div>
         </div>
-
+        <div class="col-12 col-lg-4 col-md-12">
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-6">
+              <h3>
+                <%= t('product.category')%>
+                <%= link_to category_path(@category), style:"color: yellow;" do %>
+                  <%= @category.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                  <%= @category.name_eng if params[:locale] == 'en' %>
+                  <%= @category.name_rus if params[:locale] == 'ru' %>
+                <% end %>
+              </h3>
+            </div>
+            <div class="col-6 col-md-4 col-lg-6">
+              <h3>
+                <%= t('product.country')%>
+                <%= @country.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                <%= @country.name_eng if params[:locale] == 'en' %>
+                <%= @country.name_rus if params[:locale] == 'ru' %>
+              </h3>
+            </div>
+            <div class="col-12 col-md-4 col-lg-6">
+              <h3>
+                <%= t('product.sizes')%>
+                <%= @product.sizes %>
+              </h3>
+            </div>
+            <div class="col-12">
+              <div class="row">
+                <div class="col-4">
+                  <h3>
+                    <%= t('product.description')%>
+                  </h3>
+                </div>
+                <div class="col-8">
+                  <h5>
+                    <%= @product.description_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                    <%= @product.description_eng if params[:locale] == 'en' %>
+                    <%= @product.description_rus if params[:locale] == 'ru' %>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="col-12">
+              <h3><%= t('product.buy') %></h3>
+              <div class="row">
+                <div class="col-3">
+                  <% if @product.ozon != nil %>
+                    <%= link_to "#{@product.ozon}" do %>
+                      <img src="/images/png-klev-club-l6k6-p-ozon-ikonka-png-2.png" style="width: 80px;" alt="">
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="col-3">
+                  <% if @product.ozon != nil %>
+                    <%= link_to "#{@product.wb}" do %>
+                      <img src="/images/gas-kvas-com-p-logotip-vaildberriz-na-prozrachnom-fone-28.png" style="width: 80px;" alt="">
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <br>
+            <hr>
+            <div class="col-12">
+              <h3>
+                <%= t('product.reviews')%>
+  
+              </h3>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
