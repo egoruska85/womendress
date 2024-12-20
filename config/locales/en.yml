@@ -44,3 +44,10 @@ en:
     buy: "Buy"
   home:
     top: "Hot offers"
+  product:
+    category: "Category"
+    sizes: "Размеры: "
+    country: "Country: "
+    description: "Description: "
+    reviews: "Reviews: "
+    buy: "Buy at: "

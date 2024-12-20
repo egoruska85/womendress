@@ -13,3 +13,10 @@ ru:
     buy: "Купить"
   home:
     top: "Горячие предложения"
+  product:
+    category: "Категория: "
+    sizes: "Размеры: "
+    country: "Страна: "
+    description: "Описание: "
+    reviews: "Отзывы: "
+    buy: "Купить на: "

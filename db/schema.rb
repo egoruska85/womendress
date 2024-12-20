@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_15_094624) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_20_074356) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -86,6 +86,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_15_094624) do
     t.boolean "top"
   end
 
+  create_table "countries", force: :cascade do |t|
+    t.string "name_rus"
+    t.string "name_eng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name_rus"
     t.string "name_eng"
@@ -97,7 +104,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_15_094624) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "top"
+    t.integer "country_id"
+    t.string "sizes"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["country_id"], name: "index_products_on_country_id"
   end
 
   create_table "sitedetails", force: :cascade do |t|
