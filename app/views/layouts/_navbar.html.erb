@@ -73,10 +73,7 @@
     hsl(55deg 100% 50%) 100%">
   <div class="container-fluid">
 
-    <%= link_to root_path, class:'navbar-brand' do %>
-      <%= image_tag(@logo, alt:"Bootstrap", width: '90rem;')%>
-      <!--<b style="font-family: bankgothic; font-weight: 900; font-size: 35px; width: 300px;">MB</b>-->
-    <% end %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -129,10 +126,13 @@
         </li>
 
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <!--<form class="d-flex" role="search">-->
+      <%= search_form_for @q, class:"d-flex", role:"search" do |f| %>
+        <%= f.search_field :name_rus_or_name_eng_cont, class:"form-control me-2", type:"search", placeholder:"Search" %>
+        <%= f.submit class:"btn btn-outline-success", type:"submit"%>
+
+      <% end %>
+      <!--</form>-->
     </div>
   </div>
 </nav>

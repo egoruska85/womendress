@@ -20,3 +20,9 @@ ru:
     description: "Описание: "
     reviews: "Отзывы: "
     buy: "Купить на: "
+    recently: "Просмотренные товары"
+    message: "Сообщение"
+    all_products: "Все товары"
+  rights: "Все права защищены"
+  category:
+    no_products: "В данной категории нет товаров"
