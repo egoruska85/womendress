@@ -51,7 +51,7 @@
         </div>
         <div class="col-12 col-lg-4 col-md-12">
           <div class="row">
-            <div class="col-6 col-md-4 col-lg-6">
+            <div class="col-8 col-md-4 col-lg-8">
               <h3>
                 <%= t('product.category')%>
                 <%= link_to category_path(@category), style:"color: yellow;" do %>
@@ -61,13 +61,13 @@
                 <% end %>
               </h3>
             </div>
-            <div class="col-6 col-md-4 col-lg-6">
-              <h3>
+            <div class="col-4 col-md-4 col-lg-4">
+              <h4>
                 <%= t('product.country')%>
                 <%= @country.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
                 <%= @country.name_eng if params[:locale] == 'en' %>
                 <%= @country.name_rus if params[:locale] == 'ru' %>
-              </h3>
+              </h4>
             </div>
             <div class="col-12 col-md-4 col-lg-6">
               <h3>
@@ -97,14 +97,14 @@
               <div class="row">
                 <div class="col-3">
                   <% if @product.ozon != nil %>
-                    <%= link_to "#{@product.ozon}" do %>
+                    <%= link_to "#{@product.ozon}", target:"_blank" do %>
                       <img src="/images/png-klev-club-l6k6-p-ozon-ikonka-png-2.png" style="width: 80px;" alt="">
                     <% end %>
                   <% end %>
                 </div>
                 <div class="col-3">
                   <% if @product.ozon != nil %>
-                    <%= link_to "#{@product.wb}" do %>
+                    <%= link_to "#{@product.wb}", target:"_blank" do %>
                       <img src="/images/gas-kvas-com-p-logotip-vaildberriz-na-prozrachnom-fone-28.png" style="width: 80px;" alt="">
                     <% end %>
                   <% end %>

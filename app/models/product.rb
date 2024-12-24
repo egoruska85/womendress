@@ -3,4 +3,5 @@ class Product < ApplicationRecord
   has_many_attached :images
   belongs_to :country
   has_many :productcomments
+  has_one :article
 end
