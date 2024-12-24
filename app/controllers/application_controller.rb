@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     @logo = Sitedetail.first.logo
     @top_categories = Category.where(top: true)
     @other_categories = Category.where(top: false)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
   def set_locale

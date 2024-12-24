@@ -6,9 +6,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=cyrillic" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
 
 
   </head>
+
   <body style="background: #121212;">
     <%= render 'layouts/navbar' %>
     <br>
@@ -80,7 +82,7 @@
                     <%= t('product.description')%>
                   </h3>
                 </div>
-                <div class="col-8">
+                <div class="col-8" style="min-height: 350px; max-height: 350px;">
                   <h5>
                     <%= @product.description_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
                     <%= @product.description_eng if params[:locale] == 'en' %>
@@ -109,12 +111,55 @@
                 </div>
               </div>
             </div>
+
             <br>
             <hr>
             <div class="col-12">
+              <div class="row">
+                <div class="col-12">
+                  <h3><%= t('product.reviews')%></h3>
+                </div>
+                <hr>
+                <div style="width:484px;overflow:hidden;">
+                  <div style="height:200px;width:500px;overflow-x:hidden;">
+                <% if @product.productcomments.any? %>
+
+                  <% @product.productcomments.each do |comment| %>
+
+                        <div class="row">
+                          <div class="col-4">
+                            <h5><%= "#{comment.user.username}: " %></h5>
+                          </div>
+                          <div class="col-8">
+                            <h5 style="color: white;"><%= comment.message %></h5>
+                          </div>
+                        </div>
+
+                    <hr>
+                  <% end %>
+
+                <% else %>
+                  <p>Без коментариев</p>
+                <% end %>
+              </div>
+            </div>
+                <div class="col-12 mb-3">
+                  <%= form_for([@product, @product.productcomments.build]) do |f| %>
+                    <%= f.label t('product.message') %>
+                    <br>
+                    <%= f.text_area :message, type:"text", class:"form-control", id:"exampleFormControlInput1" %>
+
+                    <br>
+                  <%= f.submit 'Оставить отзыв', class: "btn btn-info mx-1" %>
+
+                  <% end %>
+
+                </div>
+              </div>
               <h3>
-                <%= t('product.reviews')%>
-  
+
+
+
               </h3>
             </div>
           </div>
@@ -130,11 +175,60 @@
 		</div>
 	</div>
 
+<hr>
+
+<% if recent_products.any? %>
+
+<% end %>
+<div class="container">
+  <center>
+    <p class="gradient-text">
+      <%= t('product.recently') %>
+    </p>
+  </center>
+  <div class="row">
+    <% if recent_products.any? %>
+      <% recent_products.each do |product| %>
+        <div class="col-6 col-lg-4">
+          <center>
+            <%= link_to product_path(product), class:'nav-link' do %>
+              <div class="card border border-warning-subtle" style="width: 20rem;">
+                <%= image_tag(product.images.first, class:"card-img-top", alt:"...") %>
+
+                <div class="card-body" style="height: 58px; background-image: linear-gradient(
+                    45deg,
+                    hsl(0deg 100% 20%) 0%,
+                    hsl(9deg 93% 24%) 8%,
+                    hsl(16deg 92% 28%) 17%,
+                    hsl(22deg 95% 31%) 25%,
+                    hsl(27deg 100% 33%) 33%,
+                    hsl(30deg 100% 36%) 42%,
+                    hsl(34deg 100% 39%) 50%,
+                    hsl(37deg 100% 41%) 58%,
+                    hsl(40deg 100% 44%) 67%,
+                    hsl(44deg 100% 46%) 75%,
+                    hsl(47deg 100% 47%) 83%,
+                    hsl(51deg 100% 49%) 92%,
+                    hsl(55deg 100% 50%) 100%">
+                  <h4><%= product.name_rus %></h4>
+                  <h4><%= product.name_eng %></h4>
+                  <h4><%= product.name_rus %></h4>
+                </div>
+              </div>
+            <% end %>
+            <br>
+          </center>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 
 
 
-    <script src="/js/goodsgallery.function.js"></script>
-    <script src="/js/scrollbox.function.js"></script>
+  <script src="/js/goodsgallery.function.js"></script>
+  <script src="/js/scrollbox.function.js"></script>
+
   </body>
 </html>
