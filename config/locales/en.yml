@@ -38,6 +38,7 @@ en:
     main: "Main"
     about: "About us"
     chat: "Your chat"
+    search: "Search"
   carousel:
     details: "Details"
     sizes: "Sizes"
@@ -54,6 +55,13 @@ en:
     buy: "Buy at: "
     recently: "Recently products"
     all_products: "All products"
+    serached_name: "Everything found by request: "
   rights: "All rights reserved"
   category:
     no_products: "There are no products in this category"
+  articles:
+    your_article: "Your requests"
+    themes: "Message subject"
+    message: "Message text"
+    answers: "Latest answers"
+    send: "Send"

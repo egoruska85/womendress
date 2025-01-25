@@ -10,21 +10,20 @@
         <div class="intro">
           <% if carousel.category_rus.present? || carousel.category_eng.present? %>
             <div class="title">
-              <br>
               <%= carousel.category_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
               <%= carousel.category_eng if params[:locale] == 'en' %>
               <%= carousel.category_rus if params[:locale] == 'ru' %>
             </div>
           <% end %>
           <% if carousel.title_rus.present? || carousel.title_eng.present? %>
-            <div class="topic">
+            <div class="topic" style="color: yellow">
               <%= carousel.title_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
               <%= carousel.title_eng if params[:locale] == 'en' %>
               <%= carousel.title_rus if params[:locale] == 'ru' %>
             </div>
           <% end %>
           <% if carousel.body_rus.present? || carousel.body_eng.present? %>
-            <div class="description">
+            <div class="description" style="color: #B8860B">
               <%= simple_format carousel.body_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
               <%= simple_format carousel.body_eng if params[:locale] == 'en' %>
               <%= simple_format carousel.body_rus if params[:locale] == 'ru' %>
@@ -32,23 +31,29 @@
           <% end %>
           <% if carousel.details == true %>
             <button class="seeMore"><%= t('carousel.details')%> <span>&gt;</span></button>
+          <% elsif carousel.link != nil %>
+            <%= link_to "#{carousel.link}", class:"seeMore" do %>
+            <%= carousel.link_desc_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+            <%= carousel.link_desc_eng if params[:locale] == 'en' %>
+            <%= carousel.link_desc_rus if params[:locale] == 'ru' %>
+            <% end %>
           <% end %>
         </div>
           <!-- slider details start -->
         <% if carousel.details == true %>
         <div class="detail">
-          <div class="title">
+          <div class="title" style="color: yellow">
             <br>
             <%= carousel.title_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
             <%= carousel.title_eng if params[:locale] == 'en' %>
             <%= carousel.title_rus if params[:locale] == 'ru' %>
           </div>
-          <div class="description">
+          <div class="description" style="color: #B8860B">
             <%= carousel.body_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
             <%= carousel.body_eng if params[:locale] == 'en' %>
             <%= carousel.body_rus if params[:locale] == 'ru' %>
           </div>
-          <div class="specifications">
+          <div class="specifications" style="color: #DCDCDC">
             <div>
               <p><%= t('carousel.sizes')%></p>
               <p><%= carousel.details_sizes %></p>

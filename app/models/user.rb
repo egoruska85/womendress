@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :arctile       
+  has_many :articles       
 
   def login
      @login || self.username || self.email

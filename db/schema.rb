@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_12_24_201038) do
+ActiveRecord::Schema[7.0].define(version: 2024_12_26_091127) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -86,6 +86,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_24_201038) do
     t.string "details_buy_wb"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link"
+    t.string "link_desc_rus"
+    t.string "link_desc_eng"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -111,6 +114,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_24_201038) do
     t.string "name_eng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "newarrivals", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_newarrivals_on_product_id"
   end
 
   create_table "productcomments", force: :cascade do |t|
@@ -165,6 +175,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_12_24_201038) do
   add_foreign_key "articles", "users"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
+  add_foreign_key "newarrivals", "products"
   add_foreign_key "productcomments", "products"
   add_foreign_key "productcomments", "users"
   add_foreign_key "products", "categories"

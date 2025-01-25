@@ -2,7 +2,15 @@ class ProductsController < ApplicationController
   after_action :register_visit, only: [:show]
 
   def index
+    if params[:q] != nil
+      params[:q].each do |key, value|
+        value.capitalize!
+      end
+      @searced_message = "#{t('product.serached_name')}" + params[:q][:name_rus_or_name_eng_cont]
+    end
+
     @q = Product.ransack(params[:q])
+
     @products = @q.result(distinct: true)
   end
 
