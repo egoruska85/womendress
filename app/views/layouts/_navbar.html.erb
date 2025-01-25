@@ -18,7 +18,7 @@
           <div class="container-fluid">
 
               <%= link_to t('navbar.main'), root_path, class:"btn btn-outline-warning", style:"font-size: 18px;" %>
-              <%= link_to t('navbar.chat'), articles_path, class:"btn btn-outline-warning", style:"font-size: 18px;" %>
+              <%= link_to t('articles.your_article'), articles_path, class:"btn btn-outline-warning", style:"font-size: 18px;" %>
               <%= link_to t('navbar.about'), backends_path, class:"btn btn-outline-warning", style:"font-size: 18px;" %>
 
 
@@ -128,7 +128,7 @@
       </ul>
       <!--<form class="d-flex" role="search">-->
       <%= search_form_for @q, class:"d-flex", role:"search" do |f| %>
-        <%= f.search_field :name_rus_or_name_eng_cont, class:"form-control me-2", type:"search", placeholder:"Search" %>
+        <%= f.search_field :name_rus_or_name_eng_cont, class:"form-control me-2", type:"search", placeholder:"#{t('navbar.search')}" %>
 
         <%= f.submit class:"btn btn-outline-success", type:"submit"%>
 

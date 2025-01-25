@@ -24,11 +24,9 @@
 
 
 
-
-
-
-	<div class="flex" data-gallary>
-    <div class="container">
+<div class="shadow-lg p-3 mb-5 rounded order">
+  <div class="flex" data-gallary>
+    <div class="container shadow-lg p-3 mb-5 rounded order">
       <div class="row">
         <div class="col-2 col-lg-1 col-md-2">
             <div class="container" style="height:533px;width:120px;overflow-y:scroll;">
@@ -52,7 +50,7 @@
         <div class="col-12 col-lg-4 col-md-12">
           <div class="row">
             <div class="col-8 col-md-4 col-lg-8">
-              <h3>
+              <h3 style="color: #D3D3D3;">
                 <%= t('product.category')%>
                 <%= link_to category_path(@category), style:"color: yellow;" do %>
                   <%= @category.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
@@ -62,7 +60,7 @@
               </h3>
             </div>
             <div class="col-4 col-md-4 col-lg-4">
-              <h4>
+              <h4 style="color: #B8860B;">
                 <%= t('product.country')%>
                 <%= @country.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
                 <%= @country.name_eng if params[:locale] == 'en' %>
@@ -70,7 +68,7 @@
               </h4>
             </div>
             <div class="col-12 col-md-4 col-lg-6">
-              <h3>
+              <h3 style="color: #B8860B;">
                 <%= t('product.sizes')%>
                 <%= @product.sizes %>
               </h3>
@@ -78,12 +76,12 @@
             <div class="col-12">
               <div class="row">
                 <div class="col-4">
-                  <h3>
+                  <h3 style="color: #D3D3D3;">
                     <%= t('product.description')%>
                   </h3>
                 </div>
                 <div class="col-8" style="min-height: 350px; max-height: 350px;">
-                  <h5>
+                  <h5 style="color: #D3D3D3;">
                     <%= @product.description_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
                     <%= @product.description_eng if params[:locale] == 'en' %>
                     <%= @product.description_rus if params[:locale] == 'ru' %>
@@ -93,7 +91,7 @@
             </div>
             <hr>
             <div class="col-12">
-              <h3><%= t('product.buy') %></h3>
+              <h3 style="color: #B8860B;"><%= t('product.buy') %></h3>
               <div class="row">
                 <div class="col-3">
                   <% if @product.ozon != nil %>
@@ -117,7 +115,7 @@
             <div class="col-12">
               <div class="row">
                 <div class="col-12">
-                  <h3><%= t('product.reviews')%></h3>
+                  <h3 style="color: #DCDCDC;"><%= t('product.reviews')%></h3>
                 </div>
                 <hr>
                 <div style="width:484px;overflow:hidden;">
@@ -128,10 +126,10 @@
 
                         <div class="row">
                           <div class="col-4">
-                            <h5><%= "#{comment.user.username}: " %></h5>
+                            <h5 style="color: #B8860B;"><%= "#{comment.user.username}: " %></h5>
                           </div>
                           <div class="col-8">
-                            <h5 style="color: white;"><%= comment.message %></h5>
+                            <h5 style="color: #DCDCDC;"><%= comment.message %></h5>
                           </div>
                         </div>
 
@@ -167,13 +165,17 @@
       </div>
     </div>
 
-		<div>
+    <div>
 
-			<div class="flex control-row">
+      <div class="flex control-row">
 
-			</div>
-		</div>
-	</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <hr>
 

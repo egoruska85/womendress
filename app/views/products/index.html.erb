@@ -11,6 +11,8 @@
         <p class="gradient-text">
           <%= t('product.all_products') %>
         </p>
+        <h1><%= @searced_message.to_s %></h1>
+        <br>
       </center>
       <div class="row">
         <% if @product.nil? %>

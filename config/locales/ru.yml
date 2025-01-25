@@ -7,6 +7,7 @@ ru:
     main: "Главная"
     about: "О нас"
     chat: "Ваш чат"
+    search: "Поиск"
   carousel:
     details: "Подробнее"
     sizes: "Размеры"
@@ -24,6 +25,14 @@ ru:
     recently: "Просмотренные товары"
     message: "Сообщение"
     all_products: "Все товары"
+    serached_name: "Всё что найдено по запросу: "
   rights: "Все права защищены"
   category:
     no_products: "В данной категории нет товаров"
+  articles:
+    your_article: "Ваши обращения"
+    themes: "Тема обращения"
+    message: "Текст обращения"
+    answers: "Последние ответы"
+    send: "Отправить"
+    article_number: "Обращение №: "
