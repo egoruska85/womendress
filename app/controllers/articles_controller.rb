@@ -1,11 +1,19 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @articles = Article.where(user_id: current_user.id)
-    @admin_articles = Article.all
+    if current_user.admin == true
+      @articles = Article.order(created_at: :desc).limit(20)
+    elsif current_user.admin != true
+      @articles = Article.where(user_id: current_user.id)
+    end
   end
+
   def show
     @article = Article.find(params[:id])
+    @product = Product.find_by(id: @article.product_id)
+    if @article.user_id != current_user.id and current_user.admin != true
+      redirect_to articles_path
+    end
   end
 
   def create

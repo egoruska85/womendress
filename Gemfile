@@ -82,3 +82,6 @@ gem 'rails-i18n'
 gem 'rails_admin-i18n'
 gem 'meta-tags'
 gem 'ransack', '~> 3.2', '>= 3.2.1'
+gem 'simple_form'
+gem 'mail_form'
+gem "recaptcha", require: "recaptcha/rails"
