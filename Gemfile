@@ -85,3 +85,4 @@ gem 'ransack', '~> 3.2', '>= 3.2.1'
 gem 'simple_form'
 gem 'mail_form'
 gem "recaptcha", require: "recaptcha/rails"
+gem 'impressionist'
