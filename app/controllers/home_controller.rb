@@ -3,6 +3,7 @@ class HomeController < ApplicationController
   def index
     @carouseles = Carousel.all
     @products = Product.where(top: true)
+    @newarrival = Newarrival.last(6).reverse
   end
 
   def set_page_option
