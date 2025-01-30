@@ -31,6 +31,7 @@ ru:
   rights: "Все права защищены"
   category:
     no_products: "В данной категории нет товаров"
+    category: "Все категории"
   articles:
     your_article: "Ваши обращения"
     all_article: "Все обращения"

@@ -61,6 +61,7 @@ en:
   rights: "All rights reserved"
   category:
     no_products: "There are no products in this category"
+    category: "All categories"
   articles:
     your_article: "Your requests"
     all_article: "All requests"
