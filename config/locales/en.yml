@@ -48,6 +48,7 @@ en:
     top: "Hot offers"
     new: "New arrivals"
   product:
+    see: "Number of views: "
     category: "Category"
     sizes: "Sizes: "
     country: "Country: "
