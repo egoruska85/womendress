@@ -149,6 +149,9 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mail_form (1.10.0)
+      actionmailer (>= 5.2)
+      activemodel (>= 5.2)
     marcel (1.0.4)
     matrix (0.4.2)
     meta-tags (2.22.1)
@@ -234,6 +237,7 @@ GEM
       i18n
     rdoc (6.7.0)
       psych (>= 4.0.0)
+    recaptcha (5.14.0)
     regexp_parser (2.9.2)
     reline (0.5.10)
       io-console (~> 0.5)
@@ -259,6 +263,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_form (5.2.0)
+      actionpack (>= 5.2)
+      activemodel (>= 5.2)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -308,6 +315,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  mail_form
   meta-tags
   puma (~> 5.0)
   rails (~> 7.0.8, >= 7.0.8.4)
@@ -315,8 +323,10 @@ DEPENDENCIES
   rails_admin (= 3.0)
   rails_admin-i18n
   ransack (~> 3.2, >= 3.2.1)
+  recaptcha
   sassc-rails
   selenium-webdriver
+  simple_form
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
