@@ -6,6 +6,11 @@ class ArticlesController < ApplicationController
     elsif current_user.admin != true
       @articles = Article.where(user_id: current_user.id)
     end
+    if current_user.admin == true
+      @page_title = t('articles.all_article')
+    elsif current_user.admin != true
+      @page_title = t('articles.your_article')
+    end
   end
 
   def show

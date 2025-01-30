@@ -3,5 +3,6 @@ class BackendsController < ApplicationController
     @backend = Backend.last
     @sitedetail = Sitedetail.last
     @contact = Contact.new
+    @page_title = t('about.about')
   end
 end
