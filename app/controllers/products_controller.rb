@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
                                     .take(3)
   end
 
-
+  private
 
   def set_page_option
     @page_title = @product.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en'
