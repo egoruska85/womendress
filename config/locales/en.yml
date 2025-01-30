@@ -46,9 +46,10 @@ en:
     buy: "Buy"
   home:
     top: "Hot offers"
+    new: "New arrivals"
   product:
     category: "Category"
-    sizes: "Размеры: "
+    sizes: "Sizes: "
     country: "Country: "
     description: "Description: "
     reviews: "Reviews: "

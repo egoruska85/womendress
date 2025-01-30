@@ -16,10 +16,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    set_page_option
     @main_photo = @product.images.first
     @category = Category.find_by(id: @product.category_id)
     @country = Country.find_by(id: @product.country_id)
-    set_page_option
   end
 
   helper_method :recent_products
@@ -44,7 +44,9 @@ class ProductsController < ApplicationController
 
 
   def set_page_option
-    set_meta_tags product.slice(:name_rus)
+    @page_title = @product.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en'
+    @page_title = @product.name_rus if params[:locale] == 'ru'
+    @page_title = @product.name_eng if params[:locale] == 'en'
   end
 
 end
