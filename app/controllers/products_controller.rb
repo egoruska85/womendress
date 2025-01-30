@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
     @q = Product.ransack(params[:q])
 
     @products = @q.result(distinct: true)
+    @page_title = t('product.all_products')
   end
 
   def show
