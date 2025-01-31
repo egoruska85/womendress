@@ -40,6 +40,7 @@
                   <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 6rem;">
                     <%= video_tag rails_blob_path(video), size: "50x85", style:"width: 6rem;" %>
                   </button>
+                  <hr>
 
 
                   <!-- Modal -->
@@ -85,6 +86,11 @@
                     </div>
                   </div>
 
+
+
+                  <br><br>
+                  <% end %>
+                  <% end %>
                   <% if @product.images.attached? %>
                   <p style="color: white;"><%= t('product.pictures') %></p>
                     <% @product.images.each do |image| %>
@@ -93,11 +99,6 @@
                     <br><br>
                     <% end %>
                   <% end %>
-
-                  <br><br>
-                  <% end %>
-                  <% end %>
-
                 </div>
               </div>
            </div>
