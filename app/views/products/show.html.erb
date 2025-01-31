@@ -32,16 +32,10 @@
             <div class="container" style="height:533px;width:120px;overflow-y:scroll;">
               <div class="viewport">
                 <div class="thumbs content-box">
-                  <% if @product.images.attached? %>
 
-                    <% @product.images.each do |image| %>
-                      <%= image_tag(image, style:"width: 6rem;") %>
 
-                    <br><br>
-                    <% end %>
-                  <% end %>
-                  <p style="color: white;"><%= t('product.video') %></p>
                   <% if @product.videos.attached? %>
+                  <p style="color: white;"><%= t('product.video') %></p>
                   <% @product.videos.each do |video| %>
                   <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 6rem;">
                     <%= video_tag rails_blob_path(video), size: "50x85", style:"width: 6rem;" %>
@@ -90,6 +84,15 @@
                       </div>
                     </div>
                   </div>
+
+                  <% if @product.images.attached? %>
+                  <p style="color: white;"><%= t('product.pictures') %></p>
+                    <% @product.images.each do |image| %>
+                      <%= image_tag(image, style:"width: 6rem;") %>
+
+                    <br><br>
+                    <% end %>
+                  <% end %>
 
                   <br><br>
                   <% end %>
