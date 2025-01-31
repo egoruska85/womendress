@@ -4,3 +4,11 @@ config/secrets.yml
 config/
 log
 
+
+storage/15/29/15294s64tz26fypnf56nk1sghda1
+storage/46/fr/46fr9aezub2mn0x85wkxxxliqqya
+storage/dc/iy/dciy6nm61owlyhq8x9pc51lghbn0
+storage/fr/m8/frm8ulsx2r4cq5og6mogmrdgtaxh
+storage/sh/ls/shlsb55e1jidk8glnsgt5ryx76zt
+log/development.log
+db/development.sqlite3
