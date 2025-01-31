@@ -32,11 +32,62 @@
             <div class="container" style="height:533px;width:120px;overflow-y:scroll;">
               <div class="viewport">
                 <div class="thumbs content-box">
-                  <% @product.images.each do |image| %>
-                  <%= image_tag(image, style:"width: 5rem;") %>
+                  <% if @product.images.attached? %>
+
+                    <% @product.images.each do |image| %>
+                      <%= image_tag(image, style:"width: 6rem;") %>
+
+                    <br><br>
+                    <% end %>
+                  <% end %>
+                  <p style="color: white;"><%= t('product.video') %></p>
+                  <% if @product.videos.attached? %>
+                  <% @product.videos.each do |video| %>
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 6rem;">
+                    <%= video_tag rails_blob_path(video), size: "50x85", style:"width: 6rem;" %>
+                  </button>
+
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen-sm-down">
+                      <div class="modal-content" style="background-image: linear-gradient(
+                          45deg,
+                          hsl(0deg 100% 20%) 0%,
+                          hsl(9deg 93% 24%) 8%,
+                          hsl(16deg 92% 28%) 17%,
+                          hsl(22deg 95% 31%) 25%,
+                          hsl(27deg 100% 33%) 33%,
+                          hsl(30deg 100% 36%) 42%,
+                          hsl(34deg 100% 39%) 50%,
+                          hsl(37deg 100% 41%) 58%,
+                          hsl(40deg 100% 44%) 67%,
+                          hsl(44deg 100% 46%) 75%,
+                          hsl(47deg 100% 47%) 83%,
+                          hsl(51deg 100% 49%) 92%,
+                          hsl(55deg 100% 50%) 100%">
+
+                        <div class="modal-body">
+                          <center>
+                            <h1>        <%= @product.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                                    <%= @product.name_eng if params[:locale] == 'en' %>
+                                    <%= @product.name_rus if params[:locale] == 'ru' %></h1>
+                          <%= video_tag url_for(video), size: "320x720", controls: true, audio: false %>
+                          </center>
+                        </div>
+                        <div class="modal-header">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+  <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+</svg></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                   <br><br>
                   <% end %>
+                  <% end %>
+
                 </div>
               </div>
            </div>
