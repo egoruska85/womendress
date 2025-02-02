@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
   def create
   @contact = Contact.new(params[:contact])
-  @contact.sender = 'egoruska85@mail.ru'
+  @contact.sender = 'mbachani@mail.ru'
   @contact.request = request
 
   if @contact.deliver
