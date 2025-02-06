@@ -146,12 +146,189 @@
                     <%= t('product.description')%>
                   </h3>
                 </div>
-                <div class="col-8" style="min-height: 350px; max-height: 350px;">
-                  <h5 style="color: #D3D3D3;">
-                    <%= @product.description_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
-                    <%= @product.description_eng if params[:locale] == 'en' %>
-                    <%= @product.description_rus if params[:locale] == 'ru' %>
-                  </h5>
+                <div class="col-8" style="min-height: 350px; max-height: 350px; z-index: 99999;">
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="color: #FF4500;">
+                        <%= t('product.about') %>
+                      </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="color: #FF4500;">
+                        <%= t('product.characteristics') %>
+                      </button>
+                    </li>
+                  </ul>
+                                          <br>
+                  <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0" style="color: white;">
+                      <h5 style="color: #D3D3D3;">
+                        <%= @product.description_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                        <%= @product.description_eng if params[:locale] == 'en' %>
+                        <%= @product.description_rus if params[:locale] == 'ru' %>
+                      </h5>
+                    </div>
+                    <div class="tab-pane fade border border-warning rounded" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0" style="background-color: #121212;">
+                      <p style="color: white;"><%= t('product.colors')%></p>
+                      <div class="row">
+                        <% @product.colors.each do |color| %>
+                        <div class="col-2">
+                          <div class="border border-warning rounded" style="background-color: <%= color.name_eng %>; min-width: 20; min-height: 20px;">
+                          </div>
+
+                        </div>
+                        <% end %>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="row">
+                            <div class="col-6">
+                              <center>
+                              <p style="color: white;"><%= t('product.material')%></p>
+                              </center>
+                            </div>
+
+                            <div class="col-6">
+                              <center>
+                              <p style="color: #FF4500;">
+                                <%= @product.material.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                                <%= @product.material.name_eng if params[:locale] == 'en' %>
+                                <%= @product.material.name_rus if params[:locale] == 'ru' %>
+                              </p>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="row">
+                            <div class="col-6">
+                              <center>
+                              <p style="color: white;"><%= t('product.compound')%></p>
+                              </center>
+                            </div>
+                            <div class="col-6">
+                              <center>
+                              <p style="color: #FF4500;">
+                                <%= @product.compound.value_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                                <%= @product.compound.value_eng if params[:locale] == 'en' %>
+                                <%= @product.compound.value_rus if params[:locale] == 'ru' %>
+                              </p>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="row">
+                            <div class="col-6">
+                              <center>
+                              <p style="color: white;"><%= t('product.lining')%></p>
+                              </center>
+                            </div>
+                            <div class="col-6">
+                              <center>
+                              <p style="color: #FF4500;">
+                                <% if @product.lining == true %>
+                                  <%= t('product.lining_yes') %>
+                                <% else %>
+                                  <%= t('product.lining_no') %>
+                                <% end %>
+                              </p>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="row">
+                            <div class="col-6">
+                              <center>
+                              <p style="color: white;"><%= t('product.lining')%></p>
+                              </center>
+                            </div>
+                            <div class="col-6">
+                              <center>
+                              <p style="color: #FF4500;">
+                                <% if @product.clasp == true %>
+                                  <%= t('product.lining_yes') %>
+                                <% else %>
+                                  <%= t('product.lining_no') %>
+                                <% end %>
+                              </p>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                        <hr>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <center>
+                              <p style="color: white;"><%= t('product.collection')%></p>
+                              </center>
+                            </div>
+                            <div class="col-6">
+                              <center>
+                              <p style="color: #FF4500;">
+                                <%= @product.collection.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                                <%= @product.collection.name_eng if params[:locale] == 'en' %>
+                                <%= @product.collection.name_rus if params[:locale] == 'ru' %>
+                              </p>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <center>
+                              <p style="color: white;"><%= t('product.style')%></p>
+                              </center>
+                            </div>
+                            <div class="col-6">
+                              <center>
+                              <p style="color: #FF4500;">
+                                <%= @product.style.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                                <%= @product.style.name_eng if params[:locale] == 'en' %>
+                                <%= @product.style.name_rus if params[:locale] == 'ru' %>
+                              </p>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <div class="row">
+                            <div class="col-6">
+                              <center>
+                              <p style="color: white;"><%= t('product.seasons')%></p>
+                              </center>
+                            </div>
+                            <div class="col-6">
+                              <center>
+                              <p style="color: #FF4500;">
+                                <%= @product.season.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                                <%= @product.season.name_eng if params[:locale] == 'en' %>
+                                <%= @product.season.name_rus if params[:locale] == 'ru' %>
+                              </p>
+                              </center>
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </div>
+                      <hr>
+                      <p>
+                        <%= simple_format @product.other_rus, style:"color: #B8860B;" %>
+                      </p>
+                      </div>
+
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -293,6 +470,19 @@
 </div>
 
 
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">asdasdsadsa</div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">pfpfdpfdfpdpfdspfpdsfdsfsdfds</div>
+  </div>
 
 
   <script src="/js/goodsgallery.function.js"></script>
