@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_01_30_130740) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_03_073432) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -103,6 +103,22 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_30_130740) do
     t.boolean "top"
   end
 
+  create_table "collections", force: :cascade do |t|
+    t.string "name_rus"
+    t.string "name_eng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "name_rus"
+    t.string "name_eng"
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_colors_on_product_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.text "message"
@@ -111,6 +127,13 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_30_130740) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "compounds", force: :cascade do |t|
+    t.string "value_rus"
+    t.string "value_eng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "countries", force: :cascade do |t|
@@ -146,6 +169,13 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_30_130740) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
+  create_table "materials", force: :cascade do |t|
+    t.string "name_rus"
+    t.string "name_eng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "newarrivals", force: :cascade do |t|
     t.integer "product_id", null: false
     t.datetime "created_at", null: false
@@ -176,11 +206,39 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_30_130740) do
     t.boolean "top"
     t.integer "country_id"
     t.string "sizes"
+    t.integer "season_id"
+    t.integer "material_id"
+    t.integer "compound_id"
+    t.integer "collection_id"
+    t.integer "style_id"
+    t.boolean "lining"
+    t.boolean "clasp"
+    t.text "other_rus"
+    t.text "other_eng"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["collection_id"], name: "index_products_on_collection_id"
+    t.index ["compound_id"], name: "index_products_on_compound_id"
     t.index ["country_id"], name: "index_products_on_country_id"
+    t.index ["material_id"], name: "index_products_on_material_id"
+    t.index ["season_id"], name: "index_products_on_season_id"
+    t.index ["style_id"], name: "index_products_on_style_id"
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string "name_rus"
+    t.string "name_eng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sitedetails", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "name_rus"
+    t.string "name_eng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -203,6 +261,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_01_30_130740) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "products"
   add_foreign_key "articles", "users"
+  add_foreign_key "colors", "products"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "newarrivals", "products"
