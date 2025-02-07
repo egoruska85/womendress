@@ -116,35 +116,43 @@
         <div class="col-12 col-lg-4 col-md-12">
           <div class="row">
             <div class="col-8 col-md-4 col-lg-8">
-              <h3 style="color: #D3D3D3;">
+              <h4 style="color: #D3D3D3;">
                 <%= t('product.category')%>
-                <%= link_to category_path(@category), style:"color: yellow;" do %>
+                <%= link_to category_path(@category), style:"color: #B8860B;" do %>
                   <%= @category.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
                   <%= @category.name_eng if params[:locale] == 'en' %>
                   <%= @category.name_rus if params[:locale] == 'ru' %>
                 <% end %>
-              </h3>
-            </div>
-            <div class="col-4 col-md-4 col-lg-4">
-              <h4 style="color: #B8860B;">
-                <%= t('product.country')%>
-                <%= @country.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
-                <%= @country.name_eng if params[:locale] == 'en' %>
-                <%= @country.name_rus if params[:locale] == 'ru' %>
               </h4>
             </div>
-            <div class="col-12 col-md-4 col-lg-6">
-              <h3 style="color: #B8860B;">
+            <div class="col-4 col-md-4 col-lg-4">
+              <div class="row">
+                <div class="col-6">
+                  <h4 style="color: #D3D3D3;"><%= t('product.country')%></h4>
+                </div>
+                <div class="col-6">
+                 <h4 style="color: #B8860B;">
+                    <%= @country.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                    <%= @country.name_eng if params[:locale] == 'en' %>
+                    <%= @country.name_rus if params[:locale] == 'ru' %>
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 col-md-4 col-lg-8">
+              <h4 style="color: #D3D3D3;">
                 <%= t('product.sizes')%>
-                <%= @product.sizes %>
-              </h3>
+                <%= link_to category_path(@category), style:"color: #B8860B;" do %>
+                  <%= @product.sizes %>
+                <% end %>
+              </h4>
             </div>
             <div class="col-12">
               <div class="row">
                 <div class="col-4">
-                  <h3 style="color: #D3D3D3;">
+                  <h4 style="color: #D3D3D3;">
                     <%= t('product.description')%>
-                  </h3>
+                  </h4>
                 </div>
                 <div class="col-8" style="min-height: 350px; max-height: 350px;">
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
