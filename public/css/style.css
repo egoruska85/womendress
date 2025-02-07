@@ -74,10 +74,7 @@ a {
 ul {
   list-style: none;
 }
-*:focus {
-  outline: none;
-  box-shadow: 0 0 0 0.2rem hsla(277, 82%, 59%, 0.664);
-}
+
 
 /* ********************************
 2. Header
