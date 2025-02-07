@@ -11,6 +11,8 @@ class Product < ApplicationRecord
   belongs_to :collection
   belongs_to :style
   has_many :colors
+  has_one :viewlining
+  has_one :viewclasp
 
   is_impressionable
 end
