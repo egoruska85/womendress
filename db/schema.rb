@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_03_073432) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_07_124229) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -101,6 +101,15 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_03_073432) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "top"
+  end
+
+  create_table "clasps", force: :cascade do |t|
+    t.string "name_ru"
+    t.string "name_eng"
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_clasps_on_product_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -257,10 +266,29 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_03_073432) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "viewclasps", force: :cascade do |t|
+    t.string "name_ru"
+    t.string "name_eng"
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_viewclasps_on_product_id"
+  end
+
+  create_table "viewlinings", force: :cascade do |t|
+    t.string "name_ru"
+    t.string "name_eng"
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_viewlinings_on_product_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "products"
   add_foreign_key "articles", "users"
+  add_foreign_key "clasps", "products"
   add_foreign_key "colors", "products"
   add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
@@ -268,4 +296,6 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_03_073432) do
   add_foreign_key "productcomments", "products"
   add_foreign_key "productcomments", "users"
   add_foreign_key "products", "categories"
+  add_foreign_key "viewclasps", "products"
+  add_foreign_key "viewlinings", "products"
 end
