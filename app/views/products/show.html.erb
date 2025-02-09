@@ -35,9 +35,12 @@
 
 
                   <% if @product.videos.attached? %>
-                  <p style="color: white;"><%= t('product.video') %></p>
+
                   <% @product.videos.each do |video| %>
                   <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 6rem;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-play-fill" viewBox="0 0 16 16">
+  <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M6 5.883a.5.5 0 0 1 .757-.429l3.528 2.117a.5.5 0 0 1 0 .858l-3.528 2.117a.5.5 0 0 1-.757-.43V5.884z"/>
+</svg>
                     <%= video_tag rails_blob_path(video), size: "50x85", style:"width: 6rem;" %>
                   </button>
                   <hr>
@@ -92,7 +95,7 @@
                   <% end %>
                   <% end %>
                   <% if @product.images.attached? %>
-                  <p style="color: white;"><%= t('product.pictures') %></p>
+
                     <% @product.images.each do |image| %>
                       <%= image_tag(image, style:"width: 6rem;") %>
 
@@ -157,14 +160,15 @@
                 <div class="col-8" style="min-height: 350px; max-height: 350px;">
                   <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="color: #B8860B;">
+                      <button class="btn btn-dark" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true" style="color: #B8860B;">
                         <%= t('product.about') %>
                       </button>
                     </li>
                     <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="color: #B8860B;">
+                      <button class="btn btn-dark" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false" style="color: #B8860B;">
                         <%= t('product.characteristics') %>
                       </button>
+
                     </li>
                   </ul>
                   <div class="tab-content" id="myTabContent">
