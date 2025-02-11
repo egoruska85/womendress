@@ -32,7 +32,7 @@
 <hr>
 
       <div class="modal-body">
-        <h3><%= t('navbar.top_categories') %></h3>
+
         <div class="row">
           <% @top_categories.each do |category| %>
             <div class="col-6">
@@ -47,22 +47,7 @@
 
           <% end %>
 
-          <hr>
-          <h3><%= t('navbar.categories')%></h3>
-          <div class="row">
-            <% @other_categories.each do |category| %>
-              <div class="col-6">
-                <%= link_to category_path(category), class:"nav-link active", style:"font-size: 18px;  color: black;" do %>
-                  <%= category.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en'%>
-                  <%= category.name_eng if params[:locale] == 'en' %>
-                  <%= category.name_rus if params[:locale] == 'ru' %>
-                <% end %>
 
-              </div>
-            <% end %>
-
-
-          </div>
 
       <hr>
       <div class="row">
