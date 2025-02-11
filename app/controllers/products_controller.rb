@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    impressionist(@product)
+    #impressionist(@product)
     set_page_option
     @main_photo = @product.images.first
     @category = Category.find_by(id: @product.category_id)
