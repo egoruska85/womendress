@@ -38,7 +38,7 @@
                   <% if @product.videos.attached? %>
 
                   <% @product.videos.each do |video| %>
-                  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 6rem;">
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalVideo" style="width: 6rem;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-play-fill" viewBox="0 0 16 16">
   <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M6 5.883a.5.5 0 0 1 .757-.429l3.528 2.117a.5.5 0 0 1 0 .858l-3.528 2.117a.5.5 0 0 1-.757-.43V5.884z"/>
 </svg>
@@ -48,7 +48,7 @@
 
 
                   <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="exampleModalVideo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-fullscreen-sm-down">
                       <div class="modal-content" style="background-image: linear-gradient(
                           45deg,
@@ -68,15 +68,22 @@
 
                         <div class="modal-body">
                           <div class="modal-header">
+                            <div class="row">
+                              <div class="col-11">
+                                <h1>
+                                  <%= @product.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
+                                  <%= @product.name_eng if params[:locale] == 'en' %>
+                                  <%= @product.name_rus if params[:locale] == 'ru' %>
+                                </h1>
+                              </div>
+                              <div class="col-1">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+      </svg></button>
+                              </div>
+                            </div>
 
-                            <h1>
-                              <%= @product.name_rus if params != true and params[:locale] != 'ru' and params[:locale] != 'en' %>
-                              <%= @product.name_eng if params[:locale] == 'en' %>
-                              <%= @product.name_rus if params[:locale] == 'ru' %>
-                            </h1>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-  </svg></button>
+
                           </div>
                           <center>
                             <div class="modal-body" style="margin-top: -30px;">
