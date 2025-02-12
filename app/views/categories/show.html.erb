@@ -19,8 +19,8 @@
       <br>
       <div class="container">
         <div class="row">
-          <% if @category.products.any? %>
-            <% @category.products.each do |product| %>
+          <% if @filtered_products.any? %>
+            <% @filtered_products.each do |product| %>
               <div class="col-6 col-lg-4">
                 <center>
                   <%= link_to product_path(product), class:'nav-link' do %>
