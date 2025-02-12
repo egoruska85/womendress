@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @value = []
     @category.products.each do |p|
-      @value << p.related_products.to_i
+      @value << p.related_products
     end
     @value.uniq!
 
