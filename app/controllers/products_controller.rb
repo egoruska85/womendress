@@ -22,6 +22,8 @@ class ProductsController < ApplicationController
     @main_photo = @product.images.first
     @category = Category.find_by(id: @product.category_id)
     @country = Country.find_by(id: @product.country_id)
+
+    @related_products = Product.where(related_products: @product.related_products)
   end
 
   helper_method :recent_products
