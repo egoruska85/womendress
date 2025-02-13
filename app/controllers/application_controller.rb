@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   private
 
   def set_variable
-
+    @s = Sitedetail.last
+    @logo = @s.logo
+    @top_categories = Category.where(top: true)
+    @other_categories = Category.where(top: false)
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
   def set_locale
