@@ -10,7 +10,11 @@ class Product < ApplicationRecord
   belongs_to :compound
   belongs_to :collection
   belongs_to :style
-  has_and_belongs_to_many :colors
+
+  has_many :colors_products
+  has_many :colors, through: :colors_products
+
+
   has_one :viewlining
   has_one :viewclasp
 
