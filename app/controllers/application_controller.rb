@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
 
   def set_variable
 
-    @top_categories = Category.where(top: true)
-    @other_categories = Category.where(top: false)
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
   end
 
   def set_locale
