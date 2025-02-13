@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
   private
 
   def set_variable
-    @logo = Sitedetail.last.logo
+    @s = Sitedetail.last
+    @logo = @s.logo
     @top_categories = Category.where(top: true)
     @other_categories = Category.where(top: false)
     @q = Product.ransack(params[:q])
