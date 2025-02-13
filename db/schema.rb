@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2025_02_12_192652) do
+ActiveRecord::Schema[7.0].define(version: 2025_02_13_070325) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -126,6 +126,13 @@ ActiveRecord::Schema[7.0].define(version: 2025_02_12_192652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_colors_on_product_id"
+  end
+
+  create_table "colors_products", force: :cascade do |t|
+    t.string "color_id"
+    t.string "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
